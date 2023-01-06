@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Barcode Scanner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.--background]="scanActive? '#00000000' : '#fff'">
+  <ion-button expand="full" (click)="startScanner()" [hidden]="scanActive">
+    <ion-icon name="scan" slot="start"></ion-icon>
+    Scan code
+  </ion-button>
+  <p class="ion-text-center" *ngIf="result">{{ result }}</p>
+
+
+  <ion-row class="scanner-buttons" [hidden]="!scanActive">
+    <ion-col class="ion-no-padding">
+      <ion-button expand="full" (click)="stopScanner()">Stop</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <div class="scan-box" [hidden]="!scanActive"></div>
+</ion-content>
